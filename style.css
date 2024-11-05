@@ -1,0 +1,177 @@
+body, html {
+    margin: 0; /* Убираем внешние отступы */
+    padding: 0; /* Убираем внутренние отступы */
+    overflow: hidden; /* Убираем вертикальный и горизонтальный скролл */
+    height: 100%; /* Задаём 100% высоты для body и html */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: yellow;
+    background-image: linear-gradient( rgba(0, 0, 0, 1), rgba(100, 100, 255, 1), rgba(0, 0, 0, 1));
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /* Растянуть градиент на всю высоту и ширину */
+    text-align: center;
+    padding-top: 50px;
+    color: white;
+    height: 100vh; /* Устанавливаем высоту для body на весь экран */
+    overflow: hidden; /* Убираем скроллинг */
+}
+
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#result {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+/* Контейнер для каждой кнопки, обеспечивающий применение тени */
+.button-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    width: 120px;
+    height: 120px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Постоянная тень */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Общие стили для всех кнопок */
+button.dice {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Индивидуальные стили для каждой кости */
+
+/* d4 (Пирамида) */
+button[data-sides="4"] {
+    background-color: #FF6347;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+button[data-sides="4"]:after {
+    content: "D4";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* d6 (Куб) */
+button[data-sides="6"] {
+    background-color: #4682B4; /* Синий */
+    position: relative;
+}
+
+/* Добавление подписи "D6" */
+button[data-sides="6"]::after {
+    content: "D6";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* d8 (Октаэдр) */
+button[data-sides="8"] {
+    background-color: #32CD32; /* Зеленый */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+button[data-sides="8"]:after {
+    content: "D8";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+}
+
+/* d10 (Десятигранник) */
+button[data-sides="10"] {
+    background-color: #FFD700; /* Желтый */
+    clip-path: polygon(50% 0%, 90% 20%, 100% 80%, 50% 100%, 0% 80%, 10% 20%);
+}
+
+button[data-sides="10"]:after {
+    content: "D10";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* d12 (Додекаэдр) */
+button[data-sides="12"] {
+    background-color: #BA55D3; /* Фиолетовый */
+    clip-path: polygon(50% 0%, 75% 10%, 100% 50%, 75% 90%, 50% 100%, 25% 90%, 0% 50%, 25% 10%);
+}
+
+button[data-sides="12"]:after {
+    content: "D12";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* d20 (Икосаэдр) */
+button[data-sides="20"] {
+    background-color: #FF4500; /* Оранжевый */
+    clip-path: polygon(50% 0%, 80% 10%, 100% 40%, 90% 70%, 50% 100%, 10% 70%, 0% 40%, 20% 10%);
+}
+
+button[data-sides="20"]:after {
+    content: "D20";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* d100 (Сфера) */
+button[data-sides="100"] {
+    background-color: #8A2BE2; /* Темно-фиолетовый */
+    border-radius: 50%;
+}
+
+button[data-sides="100"]:after {
+    content: "D100";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Эффект при наведении для контейнера */
+.button-container:hover {
+    transform: scale(1.1); /* Увеличение контейнера на 10% при наведении */
+    box-shadow: 0 8px 12px rgba(255, 255, 255, 0.5); /* Более сильная тень */
+}
